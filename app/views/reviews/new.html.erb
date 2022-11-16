@@ -1,5 +1,9 @@
-<h1>New review</h1>
+<h1><%= @restaurant.name %></h1>
 <%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <%= f.input :content, placeholder: "Type what you liked or not"%>
+  <%= f.input :rating, collection: 0..5%>
+  <%= f.hint "Choose between 0 to 5"%>
+  <%= f.submit "Submit review", class: "btn btn-primary"%>
 <% end %>
+
+<%= link_to "Back to All Restaurants", restaurants_path, class: "btn btn-primary"%>
